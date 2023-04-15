@@ -1,13 +1,15 @@
 package models
 
+import "fmt"
+
 type Blog struct {
-	ID       uint64 `gorm:"primaryKey"`
-	Title    string `gorm:"size:255"`
-	Content  string `gorm:"size:255"`
-	CreateBy string `gorm:"size:255"`
+	ID       uint64 `gorm:"primaryKey;" json:"id"`
+	Title    string `gorm:"size:255;" json:"title"`
+	Content  string `gorm:"size:255;" json:"content"`
+	CreateBy string `gorm:"size:255;" json:"create_by"`
 }
 
-func (Blog) GeTAll() *[]Blog {
+func GeTAll() *[]Blog {
 	var blogs []Blog
 	DB.Find(&blogs)
 	return &blogs
@@ -16,5 +18,6 @@ func (Blog) GeTAll() *[]Blog {
 func Create(title string, content string, createby string) *Blog {
 	entry := Blog{Title: title, Content: content, CreateBy: createby}
 	DB.Create(&entry)
+	fmt.Println("the_entry", entry)
 	return &entry
 }

@@ -10,9 +10,10 @@ export default function Create() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const blog = { title, body, author }
+    const blog = { title:title, content:body, create_by:author }
+    console.log("thePay_load", JSON.stringify(blog))
     setIsPending(true)
-    fetch('http://localhost:8000/blogs', {
+    fetch('http://127.0.0.1:8080/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

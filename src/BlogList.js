@@ -10,7 +10,7 @@ export default function BlogList({ blogs, title, handleDelete }) {
         <div className='blog-preview' key={blog.id}>
           <Link to={`/blogs/${blog.id}`}>
             <h2> {blog.title}</h2>
-            <p> Witter by {blog.author}</p>
+            <p> Witter by {blog.create_by}</p>
           </Link>
         </div>
       ))}
