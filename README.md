@@ -26,7 +26,6 @@ this blog app allow the user to create,view and delete blogs
 
 ### Init Backend
 
-* 
 * cd to /backend
 ```
 go run *.go
@@ -35,7 +34,7 @@ go run *.go
 
 ### Init frontend
 
-* 
+
 * on root dir
 <ul>
 <li>
