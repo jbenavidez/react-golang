@@ -46,3 +46,16 @@ func BlogDetails(c *gin.Context) {
 	blog := models.GetBlog(id)
 	c.IndentedJSON(http.StatusCreated, blog)
 }
+
+func BlogDelete(c *gin.Context) {
+
+	idStr := c.Param("id")
+	id, err := strconv.ParseUint(idStr, 10, 64)
+
+	if err != nil {
+		fmt.Printf("Error: %v", err)
+	}
+	models.DeleteBlog(id)
+	c.JSON(200, gin.H{"success": "Blog #" + idStr + " deleted"})
+
+}

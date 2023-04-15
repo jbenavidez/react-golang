@@ -18,6 +18,7 @@ func main() {
 	r.GET("/blogs", controllers.Blogs)
 	r.POST("/create", controllers.CreateBlog)
 	r.GET("/blogs/:id", controllers.BlogDetails)
+	r.DELETE("/blogs/:id", controllers.BlogDelete)
 	//init project
 	r.Run() // default port 8080
 }

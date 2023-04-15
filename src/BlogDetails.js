@@ -8,7 +8,7 @@ export default function BlogDetails() {
   const { data: blog, error, isPending } = useFetch("http://127.0.0.1:8080/blogs/" + id)
   
   const handleDelete = () => {
-    fetch("http://localhost:8000/blogs/" + id, {
+    fetch("http://127.0.0.1:8080/blogs/" + id, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

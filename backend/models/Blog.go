@@ -27,3 +27,8 @@ func GetBlog(id uint64) *Blog {
 	DB.Where("id = ? ", id).First(&blog)
 	return &blog
 }
+
+func DeleteBlog(id uint64) {
+	//delete blog
+	DB.Where("id = ? ", id).Delete(&Blog{})
+}
