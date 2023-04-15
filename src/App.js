@@ -1,9 +1,9 @@
 import './App.css';
-import Navbar from './Navbar';
-import Home from './Home';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom/cjs/react-router-dom.min';
-import Create from './Create';
-import BlogDetails from './BlogDetails';
+import Create from './components/Create';
+import BlogDetails from './components/BlogDetails';
 
 function App() {
   return (

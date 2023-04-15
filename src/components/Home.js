@@ -1,6 +1,6 @@
 import React from 'react'
 import BlogList from './BlogList'
-import useFetch from './useFetch'
+import useFetch from '../hooks/useFetch'
 export default function Home() {
   const { data, isPending, error } = useFetch('http://127.0.0.1:8080/blogs')
   
