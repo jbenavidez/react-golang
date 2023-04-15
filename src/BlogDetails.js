@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 export default function BlogDetails() {
   const history = useHistory()
   const { id } = useParams()
-  const { data: blog, error, isPending } = useFetch("http://localhost:8000/blogs/" + id)
+  const { data: blog, error, isPending } = useFetch("http://127.0.0.1:8080/blogs/" + id)
   
   const handleDelete = () => {
     fetch("http://localhost:8000/blogs/" + id, {
@@ -24,8 +24,8 @@ export default function BlogDetails() {
       {blog && (
         <article>
           <h2>{blog.title}</h2>
-          <p> Written by {blog.author}</p>
-          <div>  {blog.body}</div>
+          <p> Written by {blog.create_by}</p>
+          <div>  {blog.content}</div>
           <button onClick={handleDelete}> Delete</button>
         </article>
       )}

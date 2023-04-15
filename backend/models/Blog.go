@@ -21,3 +21,9 @@ func Create(title string, content string, createby string) *Blog {
 	fmt.Println("the_entry", entry)
 	return &entry
 }
+
+func GetBlog(id uint64) *Blog {
+	var blog Blog
+	DB.Where("id = ? ", id).First(&blog)
+	return &blog
+}

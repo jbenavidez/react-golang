@@ -17,6 +17,7 @@ func main() {
 	r.Use(middleware.CORSMiddleware()) // set middleware
 	r.GET("/blogs", controllers.Blogs)
 	r.POST("/create", controllers.CreateBlog)
+	r.GET("/blogs/:id", controllers.BlogDetails)
 	//init project
 	r.Run() // default port 8080
 }

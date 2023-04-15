@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,15 +26,23 @@ func CreateBlog(c *gin.Context) {
 	var newblog blog
 
 	// Call BindJSON to bind the received JSON to
-	// newAlbum.
-	fmt.Println("init request")
 	if err := c.BindJSON(&newblog); err != nil {
 		log.Println(err)
 		fmt.Println("init request", err)
 		return
 	}
-	// Add the new album to the slice.
-	fmt.Println("the new album", newblog.CreateBy)
+	// Add the new blog to the slice.
 	models.Create(newblog.Title, newblog.Content, newblog.CreateBy)
 	c.IndentedJSON(http.StatusCreated, newblog)
+}
+
+func BlogDetails(c *gin.Context) {
+	idStr := c.Param("id")
+	id, err := strconv.ParseUint(idStr, 10, 64)
+
+	if err != nil {
+		fmt.Printf("Error: %v", err)
+	}
+	blog := models.GetBlog(id)
+	c.IndentedJSON(http.StatusCreated, blog)
 }
